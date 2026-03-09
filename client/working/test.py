@@ -91,7 +91,7 @@ import base64
 def getfile(username , password ,id):
     BASE_URL = "http://127.0.0.1:8000"
 
-# 1️⃣ Login
+
     login_payload = {
         "username": username,
         "password": password
@@ -105,17 +105,7 @@ def getfile(username , password ,id):
     tokens = login_res.json()
     access_token = tokens["access"]
 
-    # 2️⃣ Prepare file
-    
-
-
-
-
-
-
-
-
-    # 3️⃣ Upload
+   
     headers = {
         "Authorization": f"Bearer {access_token}"
     }
@@ -134,9 +124,9 @@ def getfile(username , password ,id):
     encrypted_aes_key = base64.b64decode(meta["encrypted_key"])
     iv = base64.b64decode(meta["iv"])
 
-    print("🔎 encrypted_aes_key type:", type(encrypted_aes_key))
-    print("🔎 encrypted_aes_key length:", len(encrypted_aes_key))
-    print("🔎 iv length:", len(iv))
+    print("encrypted_aes_key type:", type(encrypted_aes_key))
+    print("encrypted_aes_key length:", len(encrypted_aes_key))
+    print("iv length:", len(iv))
 
 
 
